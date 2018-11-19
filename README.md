@@ -4,21 +4,20 @@ This module displays a random compliment, within the configuration file, remote 
 
 # Google Tasks setup
 
-0. Obviously a google account is required
-1. follow this [instruction to Turn on the Google Tasks API](https://developers.google.com/tasks/quickstart/nodejs) and get your file `credentials.json` .
-2. Put this file in the module folder. Erase any `token.json` file (that would have been previously set-up, in particular if you change account or had an issue).
-3. When first launching the module (doing npm start at the magicmirror level for example), look at the console
-4. A link should be seen in the console, open it in your browser, login as the Google account you want to use the Google tasks from,
-5. it should then display a consent code, copy and paste it back in the terminal.
-6. If everything went smoothly, a list of your lists in google Tasks should be displayed
+1. A google account is required
+2. follow this [instruction to Turn on the Google Tasks API](https://developers.google.com/tasks/quickstart/nodejs) and get your file `credentials.json` .
+3. Put this file in the module folder. Erase any `token.json` file (that would have been previously set-up, in particular if you change account or had an issue).
+5. When first launching the module (doing npm start at the magicmirror level for example), look at the console
+6. A link should be seen in the console, open it in your browser, login as the Google account you want to use the Google tasks from,
+7. it should then display a consent code, copy and paste it back in the terminal.
+8. If everything went smoothly, a list of your lists in google Tasks should be displayed
 
 # Install
 
 1. Clone repository into `../modules/` inside your MagicMirror folder.
 2. Run `npm install` inside `../modules/MMM-ComplimentsExt/`
-
-git clone https://github.com/haywirecoder/MMM-ComplimentsExt/
-cd MMM-ComplimentsExt
+3. git clone https://github.com/haywirecoder/MMM-ComplimentsExt/
+4. cd MMM-ComplimentsExt
 
 
 ## Using the module
