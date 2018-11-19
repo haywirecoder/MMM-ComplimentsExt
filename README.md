@@ -36,8 +36,14 @@ modules: [
 		lists: [
 				{
 					name: 'MM Compliments',   
-					updateInterval: 1000 * 60 * 5 * 1, //update frequency for specific task list (e.g. 5 mins)
+					updateInterval: 15 * 1000 * 60,  // every 15 mins -- update frequency for specific task list 
 				},
+				{
+						type: 'URGENT', // Optional flag to indicate overright all compliment and only show this list.
+						color: 'green', // Only valid with "urgent" type. 
+						name: 'MM Urgent',  
+						updateInterval: 1000 * 60 * 5 * 1, //every 5 mins minutes
+				}
 			],						 
 		},
 	}
