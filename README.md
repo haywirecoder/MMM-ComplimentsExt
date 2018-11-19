@@ -34,7 +34,7 @@ modules: [
 			// If no config is set, the default compliments are shown.
 			// See 'Configuration options' for more information.
 		}
-		lists: [
+		tasklists: [
 				{
 					name: 'MM Compliments',   
 					color: 'green', // Color of text, optional
