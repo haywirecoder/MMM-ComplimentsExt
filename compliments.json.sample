@@ -1,0 +1,20 @@
+﻿{
+    "anytime" : [
+       
+    ],
+    "morning" : [
+        "Test M"
+    ],
+    "afternoon" : [
+        "Test A"
+    ],
+    "evening" : [
+        "Test E"
+    ],
+    "yearly_event_0926" : [
+        "Today is Sept 26th"
+    ],
+    "yearly_float_093L" : [
+        "Last day of the month"
+    ]
+}
