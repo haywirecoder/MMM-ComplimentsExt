@@ -31,8 +31,8 @@ Module.register("MMM-ComplimentsExt", {
 		morningEndTime: 12,
 		afternoonStartTime: 12,
 		afternoonEndTime: 17,
-		gTasklistDefault: {
-			listType: "NORMAL",
+		taskListDefault: {
+			type: "NORMAL",
 			updateInterval: 15 * 1000 * 60, // every 15 mins
 			initialLoadDelay: 100, // start delay seconds
 			color: "red",
@@ -63,19 +63,20 @@ Module.register("MMM-ComplimentsExt", {
 		this.flagUrgentTask = false;
 
 		this.config.infos = [];
-    	if (!this.config.taskList) {
-      		this.config.taskList = [];
+    	if (!this.config.lists) {
+      		this.config.lists = [];
 		}
 		var self = this;
 		
+		
 		//all lists are based on the template (defined here), superseded by the default value (define in config), superseded by specific value
-		for (i=0; i < this.config.taskList.length; i++) {
+		for (i=0; i < this.config.lists.length; i++) {
 			this.config.infos[i]={};
-			l = Object.assign(JSON.parse(JSON.stringify(this.config.gTasklistDefault)),
+			l = Object.assign(JSON.parse(JSON.stringify(this.config.taskListDefault)),
 			  JSON.parse(JSON.stringify(this.config.listDefault || {})),
-			  JSON.parse(JSON.stringify(this.config.taskList[i])));
+			  JSON.parse(JSON.stringify(this.config.lists[i])));
 			l.id = i;
-			this.config.taskList[i] = l;
+			this.config.lists[i] = l;
 		 }
 		this.sendSocketNotification('SET_CONFIG', this.config);
 		this.loaded = false;
@@ -167,7 +168,7 @@ Module.register("MMM-ComplimentsExt", {
 		var yfe_date_str = "yearly_float_" + yfe_date.format("MM") + yfe_date.day() +  Math.ceil(yfe_date.date()/ 7);
 		
 		// Google Task variable handlers
-		var gTask_list = this.config.taskList;
+		var gTask_list = this.config.lists;
 		var gTask_listname,gTask_detail_date, gTask_detail,  i, j;
 		var gtasktodate_str =  moment().format('MMDDYYYY');
 		
@@ -216,7 +217,7 @@ Module.register("MMM-ComplimentsExt", {
 		{
 			for (i = 0; i < gTask_list.length; i++) {
 				gTask_listname = gTask_list[i];
-				switch (gTask_listname.listType) {
+				switch (gTask_listname.type) {
 				case "NORMAL":
 					  gIndividual_tasks = this.config.infos[i];
 					  if (this.flagUrgentTask == false)
@@ -230,7 +231,7 @@ Module.register("MMM-ComplimentsExt", {
 							if (gTask_detail_date.format('MMDDYYYY') == gtasktodate_str)
 							{
 								compliments.push(gTask_detail.title);
-								// console.log("Normal Event Added: "+ gTask_detail.title); //Debug confirm event has been added
+								console.log("Normal Event Added: "+ gTask_detail.title); //Debug confirm event has been added
 					 		}	
 				  		
 						}
@@ -251,7 +252,7 @@ Module.register("MMM-ComplimentsExt", {
 							// if this first entry then clear array and start adding events
 							if(this.flagUrgentTask == false) compliments.length = 0; 
 							compliments.push(gTask_detail.title);
-							// console.log("Urgent Event Added: "+ gTask_detail.title); //Debug confirm event has been added
+							console.log("Urgent Event Added: "+ gTask_detail.title); //Debug confirm event has been added
 							this.flagUrgentTask = true;
 							this.urgentColorTask = gTask_listname.color;
 					 	}	
@@ -357,7 +358,7 @@ Module.register("MMM-ComplimentsExt", {
 			  this.loaded = true;
 			}
 			this.updateDom();
-			// console.log (this.config.infos);  // log oject to console informaiton
+			console.log (this.config.infos);  // log oject to console informaiton
 			break;
 		}
 	  },
