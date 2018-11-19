@@ -15,9 +15,8 @@ This module displays a random compliment, within the configuration file, remote 
 # Install
 
 1. Clone repository into `../modules/` inside your MagicMirror folder.
-2. Run `npm install` inside `../modules/MMM-ComplimentsExt/`
-3. git clone https://github.com/haywirecoder/MMM-ComplimentsExt/
-4. cd MMM-ComplimentsExt
+2. git clone https://github.com/haywirecoder/MMM-ComplimentsExt/ MMM-ComplimentsExt
+3. cd MMM-ComplimentsExt
 
 
 ## Using the module
@@ -34,7 +33,7 @@ modules: [
 			// If no config is set, the default compliments are shown.
 			// See 'Configuration options' for more information.
 		}
-		tasklists: [
+		taskLists: [
 				{
 					name: 'MM Compliments',   
 					color: 'green', // Color of text, optional
