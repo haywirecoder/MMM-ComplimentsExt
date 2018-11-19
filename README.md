@@ -69,6 +69,13 @@ The following properties can be configured:
 
 All the rest of the time that does not fall into the morningStartTime-morningEndTime and afternoonStartTime-afternoonEndTime ranges is considered "evening".
 
+## lists array
+
+* `name`: mandatory: name of the list of tasks
+* `type`: optional: NORMAL|URGENT determine if only task list should be displayed
+* `updateInterval`: optional: integer: number of ms to wait between two information request, default: `1 * 60 * 1000 * 60 * 6` 6 hours
+* `color`: optional: display code for urgent task list items. Default to 'red'
+
 ### Compliment configuration
 
 The `compliments` property contains an object with four arrays: <code>morning</code>, <code>afternoon</code>, <code>evening</code> and <code>anytime</code>. Based on the time of the day, the compliments will be picked out of one of these arrays. The arrays contain one or multiple compliments.
