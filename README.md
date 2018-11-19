@@ -1,6 +1,6 @@
-# Module: Compliments
+# Module: ComplimentsExt
 The `compliments` module is one of the default modules of the MagicMirror.
-This module displays a random compliment.
+This module displays a random compliment, within the configuration file, remote file and/or from Google Task list
 
 ## Using the module
 
