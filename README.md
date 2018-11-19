@@ -37,8 +37,8 @@ modules: [
 		lists: [
 				{
 					name: 'MM Compliments',   
-					color: 'green',
-					updateInterval: 1000 * 60 * 5 * 1, //every 5 mins minutes
+					color: 'green', // Color of text, optional
+					updateInterval: 1000 * 60 * 5 * 1, //update frequency for specific task list (e.g. 5 mins)
 				},
 			],						 
 		},
