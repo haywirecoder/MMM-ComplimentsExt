@@ -15,12 +15,13 @@ This module displays a random compliment, within the configuration file, remote 
 # Install
 
 1. Clone repository into `../modules/` inside your MagicMirror folder.
-2. Run `npm install` inside `../modules/MMM-ComplimentsExt/` folder
-```sh
+2. Run `npm install` inside `../modules/MMM-ComplimentsExt/`
+
 git clone https://github.com/haywirecoder/MMM-ComplimentsExt/
 cd MMM-ComplimentsExt
 
-# Using the module
+
+## Using the module
 
 To use this module, add it to the modules array in the `config/config.js` file:
 ````javascript
