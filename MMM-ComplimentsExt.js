@@ -31,8 +31,8 @@ Module.register("MMM-ComplimentsExt", {
 		morningEndTime: 12,
 		afternoonStartTime: 12,
 		afternoonEndTime: 17,
-		list_template: {
-			listtype: "NORMAL",
+		gTasklistDefault: {
+			listType: "NORMAL",
 			updateInterval: 15 * 1000 * 60, // every 15 mins
 			initialLoadDelay: 100, // start delay seconds
 			color: "red",
@@ -63,20 +63,19 @@ Module.register("MMM-ComplimentsExt", {
 		this.flagUrgentTask = false;
 
 		this.config.infos = [];
-    	if (!this.config.lists) {
-      		this.config.lists = [];
+    	if (!this.config.taskList) {
+      		this.config.taskList = [];
 		}
 		var self = this;
 		
-		
 		//all lists are based on the template (defined here), superseded by the default value (define in config), superseded by specific value
-		for (i=0; i < this.config.lists.length; i++) {
+		for (i=0; i < this.config.taskList.length; i++) {
 			this.config.infos[i]={};
-			l = Object.assign(JSON.parse(JSON.stringify(this.config.list_template)),
+			l = Object.assign(JSON.parse(JSON.stringify(this.config.gTasklistDefault)),
 			  JSON.parse(JSON.stringify(this.config.listDefault || {})),
-			  JSON.parse(JSON.stringify(this.config.lists[i])));
+			  JSON.parse(JSON.stringify(this.config.taskList[i])));
 			l.id = i;
-			this.config.lists[i] = l;
+			this.config.taskList[i] = l;
 		 }
 		this.sendSocketNotification('SET_CONFIG', this.config);
 		this.loaded = false;
@@ -168,7 +167,7 @@ Module.register("MMM-ComplimentsExt", {
 		var yfe_date_str = "yearly_float_" + yfe_date.format("MM") + yfe_date.day() +  Math.ceil(yfe_date.date()/ 7);
 		
 		// Google Task variable handlers
-		var gTask_list = this.config.lists;
+		var gTask_list = this.config.taskList;
 		var gTask_listname,gTask_detail_date, gTask_detail,  i, j;
 		var gtasktodate_str =  moment().format('MMDDYYYY');
 		
@@ -217,7 +216,7 @@ Module.register("MMM-ComplimentsExt", {
 		{
 			for (i = 0; i < gTask_list.length; i++) {
 				gTask_listname = gTask_list[i];
-				switch (gTask_listname.listtype) {
+				switch (gTask_listname.listType) {
 				case "NORMAL":
 					  gIndividual_tasks = this.config.infos[i];
 					  if (this.flagUrgentTask == false)
