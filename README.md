@@ -72,7 +72,7 @@ All the rest of the time that does not fall into the morningStartTime-morningEnd
 ## lists array
 
 * `name`: mandatory: name of the list of tasks
-* `type`: optional: NORMAL|URGENT determine if only task list should be displayed
+* `type`: optional: NORMAL | URGENT determine if only task list should be displayed
 * `updateInterval`: optional: integer: number of ms to wait between two information request, default: `1 * 60 * 1000 * 60 * 6` 6 hours
 * `color`: optional: display code for urgent task list items. Default to 'red'
 
