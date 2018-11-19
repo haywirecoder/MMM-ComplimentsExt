@@ -16,6 +16,14 @@ modules: [
 			// If no config is set, the default compliments are shown.
 			// See 'Configuration options' for more information.
 		}
+				lists: [
+					{
+							  name: 'MM Compliments',   
+							  color: 'green',
+							  updateInterval: 1000 * 60 * 5 * 1, //every 5 mins minutes
+					},
+				],						 
+			},
 	}
 ]
 ````
