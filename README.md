@@ -20,7 +20,7 @@ This module displays a random compliment, within the configuration file, remote 
 git clone https://github.com/haywirecoder/MMM-ComplimentsExt/
 cd MMM-ComplimentsExt
 
-## Using the module
+# Using the module
 
 To use this module, add it to the modules array in the `config/config.js` file:
 ````javascript
